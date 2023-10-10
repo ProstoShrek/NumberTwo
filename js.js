@@ -24,77 +24,67 @@ setTimeout(() =>{
 
 // console.log(Array.isArray(keyBox.color))
 //Массив объектов введеных руками. Далее сюда будут добавляться с инпута на сайте
-let dogOwners = [
-    {
-        dogName: "Лекса",
-        owner: 'Паша',
-        poroda: 'Немецкая овчарка',
-        status: 'Владелец',
-    },
-    {
-        dogName: 'Ирма',
-        owner: 'Настя',
-        poroda: 'Востчно-Европейская овчарка',
-        status: 'Владелец',
-    },
-    {
-        dogName: 'Лана',
-        owner:  undefined,
-        poroda: 'Дворняга',
-        status: 'Без владельца',
-    }
-]
+let dogOwners = [];
+
 // Поиск и отрисовка на странице сайта
- function test () {
-    let div = document.querySelector('#renderCard');
 
+function SendHtml() {
+    let i = 0
 
-        for (let i = 0; i < dogOwners.length; i++) {
-            let dogElement = document.createElement('div');
-            dogElement.innerHTML = ` <h3>
-            ${i +1})
-            ${dogOwners[i].dogName},<br>
-            ${dogOwners[i].owner},<br>
-            ${dogOwners[i].poroda},<br>
-            ${dogOwners[i].status}<br>
-            <h3>`;
-            div.appendChild(dogElement);
-            console.log('testing');
-     }
+    if (i < dogOwners.length) {
+
+        let div = document.getElementById("OutCount")
+        let dogElement = document.createElement("div")
+        dogElement.setAttribute('class', 'className');
+        div.appendChild(dogElement)
+
+        let lastInx = dogOwners.length -1;
+        dogElement.innerHTML = ` <h3 class= 'textOut'>
+        ${lastInx + 1}) 
+        ${dogOwners[lastInx].dogName},<br>
+        &nbsp${dogOwners[lastInx].owner},<br>
+        &nbsp${dogOwners[lastInx].poroda},<br>
+        &nbsp${dogOwners[lastInx].status}<br>
+        </h3>`;
+        console.log("Отработанно!")
+    } else {
+        console.log("Ошибка!")
     }
+    console.log(dogOwners)
+    let deleteButon = document.getElementById('send-btn')
+    deleteButon.parentNode.removeChild(deleteButon);
+}
 
-// document.querySelector('.Button').addEventListener('click',remove)/*не роибт*/
-//Получение значения из инпута в строке => Создание массива с переменными => Прооверка на
 
-function getInput () {
-    
-    let inputDogName = document.getElementById('uInfo-field').value;
-    let inputOwner = document.getElementById('uInfo-field2').value;
-    let inputPoroda = document.getElementById('uInfo-field3').value;
-    let inputStatus = document.getElementById('uInfo-field4').value;
+// Получение значения из инпута в строке => Создание массива с переменными
+function getInput() {
+  let inputDogName = document.getElementById('uInfo-field').value;
+  let inputOwner = document.getElementById('uInfo-field2').value;
+  let inputPoroda = document.getElementById('uInfo-field3').value;
+  let inputStatus = document.getElementById('uInfo-field4').value;
 
-    let allInput = [inputDogName, inputOwner, inputPoroda, inputStatus]; 
-// Прооверка на длинну строки какжого отдельной строки ввода с сайта
-    let cheking = allInput.every(function(elem){
-        if (elem.length > 2) {
-            return true
-        }   else {
-            return false
-        }})
+  let allInput = [inputDogName, inputOwner, inputPoroda, inputStatus];
+  // Проверка на длину каждой строки ввода с сайта (валидация формы)
+  let checking = allInput.every(function(elem) {
+    return elem.length > 2;
+  });
 
-// Если кажде (!) поле на сайте не меньше 3ех символов, то
-// значение введенные в полях на сайте отправляются в массив на 27 строке
-    if (cheking == true) {
-        return  dogOwners.push ({
-                dogName: inputDogName,
-                owner: inputOwner,
-                poroda: inputPoroda,
-                status: inputStatus
-        }), alert('Отправленно!')} else {
-            return alert('Ошибка в плое')
-        }
-    }
+  // Если каждое поле на сайте не меньше трех символов, то
+  // значения, введенные в полях на сайте, отправляются в массив dogOwners
+  if (checking) {
+    dogOwners.push({
+      dogName: inputDogName,
+      owner: inputOwner,
+      poroda: inputPoroda,
+      status: inputStatus
+    });
+    alert('Отправлено!');
+  } else {
+    alert('Ошибка в поле');
+  }
+}
 
-// Поиск ид на странице, привязка события 
+// Привязка событий к кнопкам
 document.getElementById('send-btn').addEventListener('click', getInput);
-document.getElementById("inputDogInfo").addEventListener('click', test);
+document.getElementById('inputDogInfo').addEventListener('click', SendHtml);
+

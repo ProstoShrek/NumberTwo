@@ -1,65 +1,78 @@
-body {
-    background: -webkit-linear-gradient(90deg, #c7dade,#9cc1d1);
-    background: linear-gradient(90deg, #c7dade,#9cc1d1);                                        
-    margin-left: 20%;
-    margin-right: 20%;
+body {                                     
     font-family: Arial, Helvetica, sans-serif;
+    background-color:#6c96c0
     
 }
 
 #header {
-    background-color: #c2c4b9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3b3d41;
     width: 100%;
     height: 100px;
-    border: solid;
-    color: #292c2e;
+    font-family: Arial, Helvetica, sans-serif;
+    
 }
-
-
 
 #TextHead {
     font-family: monospace;
     font-size: 50px;
     text-align: center;
-    color: #292c2e;
+    color: #a7aeb3;
 }
 
-#testDIV {
-    height: 100%;
+#OutPutDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* flex-basis: 33%; */
+    height: 100vh;
     margin-top: 10px;
-    height: 100%;
+    /* margin-top: 10px; */
     border: solid;
-    background: -webkit-linear-gradient(90deg, #b5b8be,#cdc1b6,#cdc1b6);
-    background: linear-gradient(90deg, #b5b8be,#cdc1b6,#cdc1b6);
-}
-
-#textDiv3 {
-    font-family: monospace;
-    font-size: 20px;
-    text-align: center;
-    height: 50%;
-    background: -webkit-linear-gradient(90deg, #b5b8be,#cdc1b6,#cdc1b6);
-    background: linear-gradient(90deg, #b5b8be,#cdc1b6,#cdc1b6);
-}
-
-.Button {
-    background-color: rgb(78, 95, 192);
-    cursor: pointer;
-    color: #D3D8DE;
-    height: 60px;
-    width: 100px;
-    padding: 20px 20px;
-    text-align: center;
-    margin-left: 30px;
-    margin-top: 30px;
-    border: solid;
-}
-
-.roll{
-    font-size: 30px;
 }
 
 #renderCard {
     background-color: #4e4f50;
-    height: 300px;
+    width: 200px;
+    margin-top: 70vh;
+}
+
+.form-registr {
+    background-color: #396b9c;
+    width: 400px;
+    height: 250px;
+    padding: 10px;
+}
+
+.uInfo-fields {
+    height: 50px;
+    padding: 10px;
+    padding-bottom: 15px;
+}
+
+#Input-Name{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #5b91c7;
+    font-size: 25px;
+}
+
+#send-btn {
+    width: 100px;
+    height: 40px;
+}
+
+.className {
+    display: flex;
+    flex-direction: column;
+    background-color: #3b3d415d;
+    margin-top: 1%;
+}
+
+.textOut {
+    margin-left: 1%;
+    font-family:monospace;
+    font-size: 30px;
 }
