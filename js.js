@@ -51,7 +51,7 @@ function SendHtml() {
         console.log("Ошибка!")
     }
     console.log(dogOwners)
-    let deleteButon = document.getElementById('send-btn')
+    let deleteButon = document.getElementById('inputDogInfo')
     deleteButon.parentNode.removeChild(deleteButon);
 }
 
